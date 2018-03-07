@@ -40,6 +40,7 @@ export default {
 
       recipes: [{
         "name": "Crèpes",
+        "image": "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fwww.2Ecuisineactuelle.2Efr.2Fvar.2Fcui.2Fstorage.2Fimages.2Frecettes-de-cuisine.2Frecettes-par-evenements.2Fchandeleur.2Fcrepes-au-chocolat.2F1141872-2-fre-FR.2Fcrepes-au-chocolat.2Ejpg/748x372/quality/80/crop-from/center/crepes-au-chocolat.jpeg",
         "ingredients": [
           {
             "name": "Lait",
@@ -132,6 +133,7 @@ export default {
     EventBus.$on('newRecipeAdded', function(recipe){
       self.recipes.push({
         name: recipe.name,
+        image: recipe.image,
         ingredients: recipe.ingredients,
         steps: recipe.steps,
       })
@@ -141,5 +143,8 @@ export default {
 </script>
 
 <style lang="scss">
-
+  img {
+    max-width: 100%;
+    max-height:  300px;
+  }
 </style>

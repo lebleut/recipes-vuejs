@@ -7,6 +7,7 @@
 	  	<h1>Recipes List</h1>
 	    <template v-for="recipe in recipes">
 	    	<h2>{{ recipe.name }}</h2>
+        <img :src="recipe.image">
         <div v-if="recipe.ingredients.length">
           <h3>Ingredients</h3>
   	    	<ul>

@@ -5,6 +5,9 @@
       <label>
         Name : 
         <input v-model="newRecipe.name" />
+        Image :
+        <input v-model="newRecipe.image" /> <br>
+        <img :src="newRecipe.image">
       </label>
       <br>
       <div>
@@ -54,6 +57,7 @@ export default {
     return {
     	newRecipe: {
         name: '',
+        image:'',
         ingredients: [],
         steps: []
       },
@@ -74,6 +78,7 @@ export default {
       if( this.newRecipe.name.trim() != '' ){
         EventBus.$emit('newRecipeAdded', this.newRecipe)
         this.newRecipe.name = ''
+        this.newRecipe.image = ''
         this.newRecipe.ingredients = []
         this.newRecipe.steps = []
       }
