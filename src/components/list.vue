@@ -7,12 +7,18 @@
 	  	<h1>Recipes List</h1>
 	    <template v-for="recipe in recipes">
 	    	<h2>{{ recipe.name }}</h2>
-	    	<ul>
-	    		<li v-for="ing in recipe.ingredients">{{ ing.name }}</li>
-	    	</ul>
-	    	<ul>
-	    		<li v-for="stp in recipe.steps">{{ stp }}</li>
-	    	</ul>
+        <div v-if="recipe.ingredients.length">
+          <h3>Ingredients</h3>
+  	    	<ul>
+  	    		<li v-for="ing in recipe.ingredients">{{ ing.quantity }} {{ ing.unity }} {{ ing.name }}</li>
+  	    	</ul>
+        </div>
+        <div v-if="recipe.steps.length">
+          <h3>Steps</h3>
+  	    	<ol>
+  	    		<li v-for="stp in recipe.steps">{{ stp }}</li>
+  	    	</ol>
+        </div>
 	    </template>
   	</div>
   </div>

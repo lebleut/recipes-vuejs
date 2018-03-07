@@ -23,6 +23,18 @@
           :isNew="true"
         />
       </div>
+      <div>
+        Etapes : 
+        <template v-for="step in newRecipe.steps">
+          <recipe-step
+            :step="step"
+          />
+        </template>
+        <recipe-step
+          :step="newRecstep"
+          :isNew="true"
+        />
+      </div>
       <br>
       <button @click="addRecipe()">Add Recipe</button>
     </div>
@@ -34,6 +46,7 @@
 import { EventBus } from '../main.js'
 
 import recipeIngredient from './new/recipeIngredient.vue'
+import recipeStep from './new/recipeStep.vue'
 
 export default {
   props:[ 'unities', 'ingredients' ],
@@ -48,20 +61,22 @@ export default {
         name: '',
         quantity:'',
         unity:''
-      }
+      },
+      newRecstep: ''
     }
   },
   components:{
-    "recipeIngredient": recipeIngredient
+    "recipeIngredient": recipeIngredient,
+    "recipeStep": recipeStep
   },
   methods:{
     addRecipe: function(){
       if( this.newRecipe.name.trim() != '' ){
         EventBus.$emit('newRecipeAdded', this.newRecipe)
+        this.newRecipe.name = ''
+        this.newRecipe.ingredients = []
+        this.newRecipe.steps = []
       }
-      this.newRecipe.name = ''
-      this.newRecipe.ingredients = []
-      this.newRecipe.steps = []
     }
   },
   created: function(){
@@ -72,6 +87,9 @@ export default {
         quantity: recIngredient.quantity,
         unity: recIngredient.unity,
       })
+    })
+    EventBus.$on('newRecstepAdded', function(recStep){
+      self.newRecipe.steps.push(recStep)
     })
   }
 }

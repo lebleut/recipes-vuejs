@@ -57,11 +57,13 @@ export default {
   },
   methods:{
     addIngredient: function(){
-      EventBus.$emit('newRecIngredientAdded', this.newRecIngredient)
-      this.newRecIngredient = {
-        name:'',
-        quantity:'',
-        unity:'',
+      if( this.newRecIngredient.name.trim() != '' ){
+        EventBus.$emit('newRecIngredientAdded', this.newRecIngredient)
+        this.newRecIngredient = {
+          name:'',
+          quantity:'',
+          unity:'',
+        }        
       }
     },
   }

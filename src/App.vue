@@ -36,22 +36,79 @@ export default {
   name: 'app',
   data: function() {
     return {
-      currentComp: 'app-settings',
+      currentComp: 'app-list',
 
-      recipes: [],
+      recipes: [{
+        "name": "Crèpes",
+        "ingredients": [
+          {
+            "name": "Lait",
+            "quantity": "0.5",
+            "unity": "Litre"
+          },
+          {
+            "name": "Sel",
+            "quantity": "1",
+            "unity": "Pincée"
+          },
+          {
+            "name": "Farine",
+            "quantity": "250",
+            "unity": "Gramme"
+          },
+          {
+            "name": "Oeuf",
+            "quantity": "4",
+            "unity": "Pièce"
+          },
+          {
+            "name": "Beurre",
+            "quantity": "50",
+            "unity": "Gramme"
+          },
+          {
+            "name": "Sucre vanillé",
+            "quantity": "1",
+            "unity": "Sachet"
+          },
+          {
+            "name": "Rhum",
+            "quantity": "1",
+            "unity": "Cuillère à soupe"
+          }
+        ],
+        "steps": [
+        "Dans un saladier, versez la farine et les oeufs. Puis progressivement ajoutez le lait tout en mélangeant avec votre fouet. Ajoutez le sucre vanillé, la pincée de sel.",
+        "Laissez reposer la pâte à crêpe si possible une heure. Faites chauffer une poêle, une fois chaude, versez un peu de beurre pour graisser la poêle.",
+        "Versez une demi-louche de votre pâte à crêpe et faites cuire 1 à 2 minutes par face.",
+        "Voilà vos crèpes sont prêtes, vous pouvez maintenant les déguster.",
+        ]
+      }],
       ingredients: [
         'Lait',
         'Farine',
         'Huil',
         'Levure',
         'Jus',
+        'Fraise',
+        'Oeuf',
+        'Sel',
+        'Sucre',
+        'Sucre vanillé',
+        'Rhum'
       ],
       unities: [
         'Litre',
         'Gramme',
         'Kg',
         'Cuillère à soupe',
-        'Cuillère à café',
+        'Cuillère à café',        
+        'Goute',
+        'Pièce',
+        'Pincée',
+        'Gousse',
+        'Boite',
+        'Sachet'
       ],
     }
   },
